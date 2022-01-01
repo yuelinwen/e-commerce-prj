@@ -1,15 +1,5 @@
-import React from 'react';
-
-import MenuItem from '../menu-item/menu-item.componenet';
-
-import './directory.styles.scss';
-
-class Directory extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      sections: [
+const INITIAL_STATE = {
+    sections: [
         {
           title: 'hats',
           imageUrl: 'https://i.ibb.co/cvpntL1/hats.png',
@@ -43,18 +33,13 @@ class Directory extends React.Component {
           linkUrl:''
         }
       ]
-    };
-  }
-
-  render() {
-    return (
-      <div className='directory-menu'>
-        {this.state.sections.map(({ id, ...otherSectionProps}) => (
-          <MenuItem key={id} {...otherSectionProps} />
-        ))}
-      </div>
-    );
-  }
 }
 
-export default Directory;
+const directoryReducer = (state = INITIAL_STATE, action) => {
+    switch(action.type){
+        default:
+            return state;
+    }
+}
+
+export default directoryReducer
