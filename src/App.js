@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 import ShopPage from './pages/shop/shop.component';
 import HomePage from './pages/homepage/homepage.component';
+import ContactPage from './pages/contact/contact.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from './pages/checkout/checkout.component';
 
@@ -46,6 +47,7 @@ class App extends React.Component {
         <Route path='/shop' component={ShopPage} />
         <Route exact path='/checkout' component={CheckoutPage} />
         <Route exact path='/sign-in' render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
+        <Route exact path='/contact' component={ContactPage} />
       </Switch>
     </div>)
   };
