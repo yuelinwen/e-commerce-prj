@@ -4,7 +4,7 @@ const ContactPage = () =>{
 return(
     <div>
         <h1>Contact</h1>
-        <span>This is a commerce app that building with React and Redux, on practicing purpose.</span>
+        <span>This is a commerce shopping app, built with React/Redux for practice purposes.</span>
     </div>
 )
 }
