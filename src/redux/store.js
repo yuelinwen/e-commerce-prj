@@ -6,6 +6,8 @@ import rootReducer from './root-reducer';
 
 //const middlewares = [logger];
 
+//remove redux-logger, no logger in live app
+
 const middlewares = [];
 
 if (process.env.NODE_ENV === 'development') {
