@@ -3,7 +3,6 @@ import React from 'react';
 import './App.css';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { createStructuredSelector } from 'reselect';
 
 import ShopPage from './pages/shop/shop.component';
 import HomePage from './pages/homepage/homepage.component';
@@ -16,7 +15,7 @@ import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
 import { setCurrentUser } from './redux/user/user.actions'
 import { selectCurrentUser } from './redux/user/user.selector';
-
+import { createStructuredSelector } from 'reselect';
 
 class App extends React.Component {
 
@@ -30,10 +29,9 @@ class App extends React.Component {
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot(snapShot => {
           setCurrentUser({ currentUser: { id: snapShot.id, ...snapShot.data() } });
-        })
+        }, () => { console.log(this.state) })
       }
       setCurrentUser(userAuth)
-
     })
   }
 
