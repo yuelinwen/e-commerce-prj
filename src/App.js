@@ -21,16 +21,12 @@ import { selectCurrentUser } from './redux/user/user.selector';
 import { createStructuredSelector } from 'reselect';
 //import { selectCollectionsForPreview } from './redux/shop/shop.selector';
 
-import { fetchCollectionsStart } from './redux/shop/shop.actions';
-
 class App extends React.Component {
 
   unsubscribeFromAuth = null
 
   componentDidMount() {
     const { setCurrentUser } = this.props
-    const { fetchCollectionsStart } = this.props;
-    fetchCollectionsStart();
     //const { setCurrentUser, collectionsArray } = this.props
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -68,8 +64,7 @@ const mapStateToProps = createStructuredSelector({
 })
 
 const mapDispatchToProps = dispatch => ({
-  setCurrentUser: user => dispatch(setCurrentUser(user)),
-  fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
+  setCurrentUser: user => dispatch(setCurrentUser(user))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
