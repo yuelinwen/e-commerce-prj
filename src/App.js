@@ -29,8 +29,10 @@ class App extends React.Component {
 
   componentDidMount() {
     const { setCurrentUser } = this.props
+    //additional
     const { fetchCollectionsStart } = this.props;
     fetchCollectionsStart();
+    //*********** */
     //const { setCurrentUser, collectionsArray } = this.props
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -69,6 +71,7 @@ const mapStateToProps = createStructuredSelector({
 
 const mapDispatchToProps = dispatch => ({
   setCurrentUser: user => dispatch(setCurrentUser(user)),
+  //additional
   fetchCollectionsStart: () => dispatch(fetchCollectionsStart()),
 })
 
