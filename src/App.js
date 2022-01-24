@@ -9,6 +9,7 @@ import HomePage from './pages/homepage/homepage.component';
 import ContactPage from './pages/contact/contact.component';
 import SignInAndSignUpPage from './pages/sign-in-and-sign-up/sign-in-and-sign-up.component';
 import CheckoutPage from './pages/checkout/checkout.component';
+import PageNotFound from './pages/page-not-found/pageNotFound.component';
 
 import Header from './components/header/header.component';
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
@@ -53,6 +54,7 @@ class App extends React.Component {
         <Route exact path='/checkout' component={CheckoutPage} />
         <Route exact path='/sign-in' render={() => this.props.currentUser ? (<Redirect to='/' />) : (<SignInAndSignUpPage />)} />
         <Route exact path='/contact' component={ContactPage} />
+        <Route component={PageNotFound} />
       </Switch>
     </div>)
   };
